@@ -40,7 +40,7 @@ p#friend-name {
     position: relative;
     width: 250px; /* Ancho base del contenedor del pastel */
     height: 250px; /* Alto base del contenedor del pastel */
-    margin-bottom: 20px;
+    margin-bottom: 5px; /* Ajustado para acercar el texto */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,7 +49,7 @@ p#friend-name {
 
 /* Estilos de los pisos del pastel */
 .cake-tier {
-    position: relative;
+    position: relative; /* Es importante que sea 'relative' para posicionar el 'age' */
     border-radius: 5px;
     margin-top: -10px; /* Para que se superpongan un poco */
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -74,60 +74,26 @@ p#friend-name {
     height: 40px;
     background-color: #ffb6c1; /* Rosa claro */
     margin-bottom: 5px;
+    display: flex;           /* Para centrar el número */
+    justify-content: center; /* Para centrar el número */
+    align-items: center;     /* Para centrar el número */
+    /* Eliminar cualquier 'position: absolute;' o 'top/left/transform'
+       si lo tuvieras aquí por error, ya que display:flex lo centra */
 }
 
-/* Vela y llama */
-.candle {
-    position: absolute;
-    top: -10px; /* Posicionando la vela encima del piso superior */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 8px;
-    height: 30px;
-    background-color: #a9a9a9; /* Gris */
-    border-radius: 2px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.9em;
-    color: white;
-    font-weight: bold;
-    z-index: 10; /* Para que esté por encima del pastel */
-}
-
-.candle .flame {
-    position: absolute;
-    top: -10px;
-    width: 12px;
-    height: 12px;
-    background-color: #ffa500; /* Naranja para la llama */
-    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; /* Forma de gota */
-    box-shadow: 0 0 8px #ffeb3b, 0 0 15px #ffc107; /* Brillo */
-    animation: flicker 0.5s infinite alternate; /* Animación de parpadeo */
-    z-index: 11;
-}
-
-.candle .age {
+/* Estilo del número (edad) */
+.age {
     color: #333; /* Color oscuro para el número */
-    font-size: 1.2em;
-    position: absolute;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 12;
+    font-size: 1.5em; /* Un poco más grande para que se vea bien */
+    font-weight: bold;
+    /* QUITAMOS CUALQUIER POSICIONAMIENTO ABSOLUTO AQUÍ */
+    /* El display:flex del padre (.top-tier) se encargará de centrarlo */
 }
 
 p#happy-birthday-text {
     font-family: 'Brush Script MT', cursive; /* Fuente más caligráfica */
     font-size: 2.5em;
     color: #000000; /* Negro */
-    margin-top: 15px;
+    margin-top: 5px; /* Ajustado para acercar al pastel */
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-}
-
-/* Animación de parpadeo de la llama */
-@keyframes flicker {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(0.9); opacity: 0.8; }
-    100% { transform: scale(1); opacity: 1; }
 }
